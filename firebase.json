@@ -1,1 +1,50 @@
-{"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]},"flutter":{"platforms":{"android":{"default":{"projectId":"plotsfolio","appId":"1:194129366559:android:cf94387356673930500f2a","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"plotsfolio","configurations":{"android":"1:194129366559:android:cf94387356673930500f2a","ios":"1:194129366559:ios:0a5993588f65ff3d500f2a","macos":"1:194129366559:ios:0a5993588f65ff3d500f2a","web":"1:194129366559:web:268fc61268f1b46e500f2a","windows":"1:194129366559:web:875c35cee4b33fb9500f2a"}}}}}}
+{
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "image/png"
+          }
+        ]
+      }
+    ]
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "plotsfolio",
+          "appId": "1:194129366559:android:cf94387356673930500f2a",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "plotsfolio",
+          "configurations": {
+            "android": "1:194129366559:android:cf94387356673930500f2a",
+            "ios": "1:194129366559:ios:0a5993588f65ff3d500f2a",
+            "macos": "1:194129366559:ios:0a5993588f65ff3d500f2a",
+            "web": "1:194129366559:web:268fc61268f1b46e500f2a",
+            "windows": "1:194129366559:web:875c35cee4b33fb9500f2a"
+          }
+        }
+      }
+    }
+  }
+}
