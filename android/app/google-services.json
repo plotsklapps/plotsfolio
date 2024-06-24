@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "194129366559",
+    "project_id": "plotsfolio",
+    "storage_bucket": "plotsfolio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194129366559:android:cf94387356673930500f2a",
+        "android_client_info": {
+          "package_name": "dev.plotsklapps.plotsfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPE7YAASrnuCHyA1Gi9JV83IgX3nyqev0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194129366559:android:af3ccd48797d262c500f2a",
+        "android_client_info": {
+          "package_name": "dev.plotsklapps.portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPE7YAASrnuCHyA1Gi9JV83IgX3nyqev0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
