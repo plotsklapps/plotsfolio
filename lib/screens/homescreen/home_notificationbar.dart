@@ -14,70 +14,73 @@ class HomeScreenNotificationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topCenter,
-      child: ExpansionTile(
-        controller: sExpansionTileController.watch(context),
-        tilePadding: const EdgeInsets.symmetric(horizontal: 8),
-        leading: const NotificationBarSmallTime(),
-        title: const NotificationBarIconRowLeft(),
-        trailing: const NotificationBarIconRowRight(),
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text('12:00 Sun, Jun 16'),
-                    FaIcon(FontAwesomeIcons.gear),
-                  ],
+      child: ListTileTheme(
+        contentPadding: EdgeInsets.zero,
+        child: ExpansionTile(
+          controller: sExpansionTileController.watch(context),
+          tilePadding: const EdgeInsets.symmetric(horizontal: 8),
+          leading: const NotificationBarSmallTime(),
+          title: const NotificationBarIconRowLeft(),
+          trailing: const NotificationBarIconRowRight(),
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('12:00 Sun, Jun 16'),
+                      FaIcon(FontAwesomeIcons.gear),
+                    ],
+                  ),
                 ),
-              ),
-              const Divider(thickness: 2),
-              const SizedBox(height: 8),
-              const NotificationBarLargeToggleRow(),
-              const SizedBox(height: 16),
-              const NotificationBarLargeVolumeSlider(),
-              const SizedBox(height: 8),
-              NotificationBarLargeNotification(
-                icon: FontAwesomeIcons.xTwitter,
-                iconSize: 16,
-                iconColor: Utils.gunMetal,
-                title: ':plotsklapps',
-                subtitle: 'Follow me on X',
-                onTap: () async {
-                  await Utils.launchXURL();
-                },
-                expandedTitle: 'X profile',
-                expandedSubtitle: 'Click here to visit my X profile',
-              ),
-              NotificationBarLargeNotification(
-                icon: FontAwesomeIcons.github,
-                iconSize: 16,
-                iconColor: Utils.gunMetal,
-                title: ':plotsklapps',
-                subtitle: 'Follow me on GitHub',
-                onTap: () async {
-                  await Utils.launchGithubURL();
-                },
-                expandedTitle: 'GitHub repositories',
-                expandedSubtitle: 'Click here to visit my GitHub profile',
-              ),
-              NotificationBarLargeNotification(
-                icon: FontAwesomeIcons.hashnode,
-                iconSize: 16,
-                iconColor: Utils.gunMetal,
-                title: ':plotsklapps',
-                subtitle: 'Follow me on Hashnode',
-                onTap: () async {
-                  await Utils.launchHashnodeURL();
-                },
-                expandedTitle: 'Hashnode blog posts',
-                expandedSubtitle: 'Click here to visit my Hashnode profile',
-              ),
-            ],
-          ),
-        ],
+                const Divider(thickness: 2),
+                const SizedBox(height: 8),
+                const NotificationBarLargeToggleRow(),
+                const SizedBox(height: 16),
+                const NotificationBarLargeVolumeSlider(),
+                const SizedBox(height: 8),
+                NotificationBarLargeNotification(
+                  icon: FontAwesomeIcons.xTwitter,
+                  iconSize: 16,
+                  iconColor: Utils.gunMetal,
+                  title: ':plotsklapps',
+                  subtitle: 'Follow me on X',
+                  onTap: () async {
+                    await Utils.launchXURL();
+                  },
+                  expandedTitle: 'X profile',
+                  expandedSubtitle: 'Click here to visit my X profile',
+                ),
+                NotificationBarLargeNotification(
+                  icon: FontAwesomeIcons.github,
+                  iconSize: 16,
+                  iconColor: Utils.gunMetal,
+                  title: ':plotsklapps',
+                  subtitle: 'Follow me on GitHub',
+                  onTap: () async {
+                    await Utils.launchGithubURL();
+                  },
+                  expandedTitle: 'GitHub repositories',
+                  expandedSubtitle: 'Click here to visit my GitHub profile',
+                ),
+                NotificationBarLargeNotification(
+                  icon: FontAwesomeIcons.hashnode,
+                  iconSize: 16,
+                  iconColor: Utils.gunMetal,
+                  title: ':plotsklapps',
+                  subtitle: 'Follow me on Hashnode',
+                  onTap: () async {
+                    await Utils.launchHashnodeURL();
+                  },
+                  expandedTitle: 'Hashnode blog posts',
+                  expandedSubtitle: 'Click here to visit my Hashnode profile',
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
