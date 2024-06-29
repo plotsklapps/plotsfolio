@@ -116,7 +116,6 @@ class NotificationBarIconRowLeft extends StatelessWidget {
             ),
           ],
         ),
-
       ],
     );
   }
@@ -343,11 +342,14 @@ class HomeScreenCameraCutout extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FaIcon(FontAwesomeIcons.solidCircleDot, size: 20, color: Utils.gunMetal,),
+            FaIcon(
+              FontAwesomeIcons.solidCircleDot,
+              size: 20,
+              color: Utils.gunMetal,
+            ),
           ],
         ),
       ),
     );
   }
 }
-
