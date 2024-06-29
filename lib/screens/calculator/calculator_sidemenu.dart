@@ -15,7 +15,7 @@ class CalculatorSideMenu extends StatelessWidget {
           style: TextStyle(fontSize: 32, color: Utils.gunMetal),
         ).animate().fade(delay: 400.ms, duration: 800.ms),
         const SizedBox(height: 16),
-        Text(''),
+        const Text(''),
       ],
     );
   }
