@@ -23,6 +23,8 @@ class HomeScreen extends StatelessWidget {
             HomeScreenBackground(),
             // The 'notification bar'.
             HomeScreenNotificationBar(),
+            // The 'camera cutout'.
+            HomeScreenCameraCutout(),
             // The 'app drawer' icon.
             HomeScreenAppdrawerIcon(),
             // The homescreen icons.

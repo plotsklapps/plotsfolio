@@ -96,22 +96,27 @@ class NotificationBarIconRowLeft extends StatelessWidget {
     return const Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        FaIcon(
-          FontAwesomeIcons.xTwitter,
-          size: 20,
-          color: Utils.gunMetal,
+        Row(
+          children: <Widget>[
+            FaIcon(
+              FontAwesomeIcons.xTwitter,
+              size: 20,
+              color: Utils.gunMetal,
+            ),
+            FaIcon(
+              FontAwesomeIcons.github,
+              size: 20,
+              color: Utils.gunMetal,
+            ),
+            SizedBox(width: 2),
+            FaIcon(
+              FontAwesomeIcons.hashnode,
+              size: 20,
+              color: Utils.gunMetal,
+            ),
+          ],
         ),
-        FaIcon(
-          FontAwesomeIcons.github,
-          size: 20,
-          color: Utils.gunMetal,
-        ),
-        SizedBox(width: 2),
-        FaIcon(
-          FontAwesomeIcons.hashnode,
-          size: 20,
-          color: Utils.gunMetal,
-        ),
+
       ],
     );
   }
@@ -325,3 +330,24 @@ class NotificationBarLargeNotification extends StatelessWidget {
     );
   }
 }
+
+class HomeScreenCameraCutout extends StatelessWidget {
+  const HomeScreenCameraCutout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Align(
+      alignment: Alignment.topCenter,
+      child: Padding(
+        padding: EdgeInsets.only(top: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            FaIcon(FontAwesomeIcons.solidCircleDot, size: 20, color: Utils.gunMetal,),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
