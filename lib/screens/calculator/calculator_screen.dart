@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:plotsfolio/screens/calculator/calculator_sidemenu.dart';
+import 'package:plotsfolio/state/sidemenu_open.dart';
 import 'package:plotsfolio/utils/utils.dart';
+import 'package:signals/signals_flutter.dart';
 
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
@@ -69,7 +72,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
       appBar: AppBar(
         backgroundColor: Utils.gunMetal,
         title: const Text(
-          'Calculator',
+          Utils.calculatorTitle,
           style: TextStyle(
             color: Utils.lightGrey,
           ),
@@ -78,6 +81,32 @@ class CalculatorScreenState extends State<CalculatorScreen> {
         iconTheme: const IconThemeData(
           color: Utils.lightGrey,
         ),
+        actions: <Widget>[
+          // Check the screensize to determine whether to show the info icon.
+          if (isSideMenuOpen.watch(context))
+            const SizedBox()
+          else
+            Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: IconButton(
+                icon: const FaIcon(FontAwesomeIcons.circleInfo),
+                onPressed: () {
+                  // Show a modalbottomsheet with the same contents as
+                  // CalculatorSideMenu.
+                  showModalBottomSheet<void>(
+                    showDragHandle: true,
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const Padding(
+                        padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
+                        child: CalculatorSideMenu(),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(32),
@@ -171,6 +200,7 @@ class CalculatorButton extends StatelessWidget {
     this.color = Utils.gunMetal,
     super.key,
   });
+
   final String value;
   final void Function(String) onPressed;
   final Color color;
