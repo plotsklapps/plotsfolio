@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plotsfolio/responsive_layout.dart';
 import 'package:plotsfolio/screens/calculator/calculator_screen.dart';
 import 'package:plotsfolio/screens/calculator/calculator_sidemenu.dart';
+import 'package:plotsfolio/screens/weatherscreen/weather_sidemenu.dart';
+import 'package:plotsfolio/screens/weatherscreen/weatherloading_screen.dart';
 import 'package:plotsfolio/utils/utils.dart';
 
 class AppdrawerScreen extends StatelessWidget {
@@ -51,6 +53,17 @@ class AppdrawerScreen extends StatelessWidget {
                 icon: FontAwesomeIcons.cloudSun,
                 onPressed: () {
                   Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return const ResponsiveLayout(
+                          screen: WeatherLoadingScreen(),
+                          sideMenu: WeatherSideMenu(),
+                        );
+                      },
+                    ),
+                  );
                 },
               ),
             ],

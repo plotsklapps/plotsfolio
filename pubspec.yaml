@@ -16,6 +16,7 @@ dependencies:
   flutter_animate: ^4.5.0
   flutter_svg: ^2.0.10+1
   font_awesome_flutter: ^10.7.0
+  geolocator: ^12.0.0
   math_expressions: ^2.5.0
   signals: ^5.2.2
   url_launcher: ^6.3.0
