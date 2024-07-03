@@ -12,7 +12,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // When on Android, set the system UI mode to immersive (hides the
-  // status bar).
+  // status bar). This only happens if the PWA is installed to the
+  // device.
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
   // This PWA is hosted via Firebase Hosting. Initialize Firebase with the

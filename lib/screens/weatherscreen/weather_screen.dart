@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -64,148 +66,144 @@ class WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Utils.lightGrey,
       appBar: AppBar(
-        title: const Text('Weather App'),
+        title: const Text('Weather'),
         centerTitle: true,
       ),
-      body: SafeArea(
-        child: Stack(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Positioned(
-              bottom: 50,
-              left: 100,
-              child: Icon(
-                sWeatherIcon.watch(context),
-                size: 300,
-                color: Utils.flame,
-              ),
-            ).animate().fadeIn(
-                  duration: const Duration(milliseconds: 2000),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Icon(
+                  // The icon shown is based on the condition provided by the
+                  // weatherModel.
+                  sWeatherIcon.watch(context),
+                  size: 300,
+                  color: Utils.flame,
                 ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          const Text('Use current location'),
-                          IconButton(
-                            onPressed: () async {
-                              // Asynchronous method, FIRST store the new
-                              // weather data in variable weatherData, then
-                              // call updateUI with the new data.
-                              final dynamic weatherData =
-                                  await weatherModel.getLocationWeather();
-                              updateUI(weatherData);
-                            },
-                            icon: const Icon(
-                              FontAwesomeIcons.locationDot,
-                              size: 36,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                const Text(
+                  'Use current location',
+                  style: TextStyle(
+                    color: Utils.gunMetal,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      const Text('Check the weather in another city'),
-                      const SizedBox(height: 16),
-                      Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: TextField(
-                          onChanged: (String value) {
-                            // Purposely NOT updating the signal here
-                            // since that will change the UI on the fly,
-                            // instead of after the button press.
-                            cityName = value;
-                          },
-                          decoration: const InputDecoration(
-                            label: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Text>[
-                                Text(
-                                  'Enter city name',
-                                ),
-                              ],
-                            ),
-                            icon: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              child: Icon(FontAwesomeIcons.city),
-                            ),
-                          ),
-                          keyboardType: TextInputType.text,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      ElevatedButton(
-                        onPressed: () async {
-                          // Asynchronous method, FIRST store the new
-                          // weather data in variable weatherData, then call
-                          // updateUI with the new data.
-                          final dynamic weatherData =
-                              await weatherModel.getCityWeather(
-                            cityName,
-                          );
-                          updateUI(weatherData);
-                        },
-                        child: const Text(
-                          'Get Weather',
-                        ),
-                      ),
-                    ],
+                ),
+                IconButton(
+                  onPressed: () async {
+                    // Asynchronous method, FIRST store the new
+                    // weather data in variable weatherData, then
+                    // call updateUI with the new data.
+                    final dynamic weatherData =
+                        await weatherModel.getLocationWeather();
+                    updateUI(weatherData);
+                  },
+                  icon: const Icon(
+                    FontAwesomeIcons.locationDot,
+                    size: 32,
+                    color: Utils.flame,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Text(
-                              // Directly display the contents of the provider.
-                              '${sWeatherTemp.watch(context).toStringAsFixed(1)}°C',
-                              style: const TextStyle(
-                                fontSize: 80,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const SizedBox(height: 8),
+                const Text('Check the weather in another city'),
+                const SizedBox(height: 8),
+                TextField(
+                  onChanged: (String value) {
+                    // Purposely NOT updating the signal here
+                    // since that will change the UI on the fly,
+                    // instead of after the button press.
+                    cityName = value;
+                  },
+                  decoration: InputDecoration(
+                    label: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Text>[
                         Text(
-                          // Directly display the contents of the provider.
-                          '''Current minimum: ${sWeatherTempMin.watch(context).toStringAsFixed(1)} °C''',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          // Directly display the contents of the provider.
-                          '''Current maximum: ${sWeatherTempMax.watch(context).toStringAsFixed(1)} °C''',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                          'Enter city name',
                         ),
                       ],
                     ),
-                  ),
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Text(
-                        // Directly display the contents of the provider.
-                        sWeatherCityName.watch(context),
-                        style: const TextStyle(
-                          fontSize: 36,
-                        ),
+                    icon: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: FaIcon(
+                        FontAwesomeIcons.city,
+                      ),
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () async {
+                        // Asynchronous method, FIRST store the new
+                        // weather data in variable weatherData, then
+                        // call updateUI with the new data.
+                        final dynamic weatherData =
+                            await weatherModel.getCityWeather(
+                          cityName,
+                        );
+                        updateUI(weatherData);
+                      },
+                      icon: const FaIcon(
+                        FontAwesomeIcons.circleArrowRight,
+                        color: Utils.flame,
                       ),
                     ),
                   ),
-                ],
+                  keyboardType: TextInputType.text,
+                  textAlign: TextAlign.center,
+                  cursorColor: Utils.gunMetal,
+                ),
+              ],
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          // Directly display the contents of the provider.
+                          '${sWeatherTemp.watch(context).toStringAsFixed(1)}°C',
+                          style: const TextStyle(
+                            fontSize: 80,
+                            fontWeight: FontWeight.bold,
+                            color: Utils.gunMetal,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      // Directly display the contents of the provider.
+                      '''Current minimum: ${sWeatherTempMin.watch(context).toStringAsFixed(1)} °C''',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      // Directly display the contents of the provider.
+                      '''Current maximum: ${sWeatherTempMax.watch(context).toStringAsFixed(1)} °C''',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  // Directly display the contents of the provider.
+                  sWeatherCityName.watch(context),
+                  style: const TextStyle(
+                    fontSize: 36,
+                  ),
+                ),
               ),
             ),
           ],

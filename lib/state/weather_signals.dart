@@ -14,7 +14,7 @@ final Signal<double> sWeatherTemp = Signal<double>(0);
 final Signal<int> sWeatherCondition = Signal<int>(0);
 
 final Signal<IconData> sWeatherIcon =
-    Signal<IconData>(FontAwesomeIcons.exclamation);
+    Signal<IconData>(FontAwesomeIcons.triangleExclamation);
 
 final Signal<double> sWeatherTempMin = Signal<double>(0);
 
