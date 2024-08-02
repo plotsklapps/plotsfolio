@@ -21,6 +21,9 @@ dependencies:
   signals: ^5.2.2
   url_launcher: ^6.3.0
 
+  http: any
+  battery_plus: ^6.0.2
+  intl: ^0.19.0
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.4.0

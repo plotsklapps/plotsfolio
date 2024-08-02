@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:plotsfolio/state/current_batterylevel.dart';
+import 'package:plotsfolio/state/current_time.dart';
 import 'package:plotsfolio/state/current_volume.dart';
 import 'package:plotsfolio/state/expansiontile_controller.dart';
 import 'package:plotsfolio/utils/utils.dart';
@@ -128,25 +130,36 @@ class NotificationBarIconRowRight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        FaIcon(
+        const FaIcon(
           FontAwesomeIcons.wifi,
           size: 16,
           color: Utils.gunMetal,
         ),
-        FaIcon(
+        const FaIcon(
           FontAwesomeIcons.signal,
           size: 16,
           color: Utils.gunMetal,
         ),
-        SizedBox(width: 4),
-        FaIcon(
-          FontAwesomeIcons.batteryThreeQuarters,
-          size: 20,
-          color: Utils.gunMetal,
+        const SizedBox(width: 4),
+        Text(
+          sBatteryLevel.watch(context),
+          style: const TextStyle(
+            fontSize: 20,
+            color: Utils.gunMetal,
+          ),
         ),
+        const SizedBox(width: 4),
+        if (sBatteryLevel.watch(context) == '100%')
+          const FaIcon(FontAwesomeIcons.batteryFull)
+        else
+          const FaIcon(
+            FontAwesomeIcons.batteryThreeQuarters,
+            size: 20,
+            color: Utils.gunMetal,
+          ),
       ],
     );
   }
@@ -157,9 +170,9 @@ class NotificationBarSmallTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      '12:00',
-      style: TextStyle(
+    return Text(
+      sCurrentTime.watch(context),
+      style: const TextStyle(
         fontSize: 20,
         color: Utils.gunMetal,
       ),
@@ -299,33 +312,36 @@ class NotificationBarLargeNotification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionTile(
-      leading: FaIcon(
-        icon,
-        size: iconSize,
-        color: iconColor,
-      ),
-      title: Text(title),
-      subtitle: Text(subtitle),
-      trailing: const FaIcon(
-        FontAwesomeIcons.chevronDown,
-        size: 16,
-        color: Utils.gunMetal,
-      ),
-      children: <Widget>[
-        ListTile(
-          onTap: onTap,
-          leading: CircleAvatar(
-            backgroundColor: Colors.transparent,
-            radius: 12,
-            child: Image.asset(
-              'assets/images/plotsklappsIcon.png',
-            ),
-          ),
-          title: Text(expandedTitle),
-          subtitle: Text(expandedSubtitle),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ExpansionTile(
+        leading: FaIcon(
+          icon,
+          size: iconSize,
+          color: iconColor,
         ),
-      ],
+        title: Text(title),
+        subtitle: Text(subtitle),
+        trailing: const FaIcon(
+          FontAwesomeIcons.chevronDown,
+          size: 16,
+          color: Utils.gunMetal,
+        ),
+        children: <Widget>[
+          ListTile(
+            onTap: onTap,
+            leading: CircleAvatar(
+              backgroundColor: Colors.transparent,
+              radius: 12,
+              child: Image.asset(
+                'assets/images/plotsklappsIcon.png',
+              ),
+            ),
+            title: Text(expandedTitle),
+            subtitle: Text(expandedSubtitle),
+          ),
+        ],
+      ),
     );
   }
 }

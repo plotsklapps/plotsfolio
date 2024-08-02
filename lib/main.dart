@@ -9,6 +9,7 @@ import 'package:plotsfolio/state/font_signal.dart';
 import 'package:signals/signals_flutter.dart';
 
 Future<void> main() async {
+  // Mandatory.
   WidgetsFlutterBinding.ensureInitialized();
 
   // When on Android, set the system UI mode to immersive (hides the

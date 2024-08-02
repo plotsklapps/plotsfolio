@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:plotsfolio/responsive_layout.dart';
 import 'package:plotsfolio/screens/welcomescreen/welcome_screen.dart';
 import 'package:plotsfolio/screens/welcomescreen/welcome_sidemenu.dart';
+import 'package:plotsfolio/state/current_batterylevel.dart';
 import 'package:plotsfolio/utils/utils.dart';
 
 // This is the main splash screen. It will be shown when the app is started.
@@ -29,18 +30,24 @@ class SplashScreenState extends State<SplashScreen> {
 
     // Initialize the Timer variable with a duration of 3 seconds.
     // When the timer expires, navigate to the WelcomeScreen.
-    timer = Timer(const Duration(seconds: 3), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) {
-            return const ResponsiveLayout(
-              screen: WelcomeScreen(),
-              sideMenu: WelcomeScreenSideMenu(),
-            );
-          },
-        ),
-      );
+    timer = Timer(const Duration(seconds: 3), () async {
+      // Fetch the batterylevel from the device.
+      await updateBatteryLevel();
+
+      // Navigate to the WelcomeScreen.
+      if (mounted) {
+        await Navigator.push(
+          context,
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) {
+              return const ResponsiveLayout(
+                screen: WelcomeScreen(),
+                sideMenu: WelcomeScreenSideMenu(),
+              );
+            },
+          ),
+        );
+      }
     });
   }
 

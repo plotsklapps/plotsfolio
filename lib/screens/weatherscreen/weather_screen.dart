@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_dynamic_calls
 
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plotsfolio/screens/weatherscreen/weather_services.dart';
 import 'package:plotsfolio/state/weather_signals.dart';
@@ -111,7 +110,7 @@ class WeatherScreenState extends State<WeatherScreen> {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
+              children: <Widget>[
                 const SizedBox(height: 8),
                 const Text('Check the weather in another city'),
                 const SizedBox(height: 8),
