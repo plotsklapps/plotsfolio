@@ -28,9 +28,9 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    // Initialize the Timer variable with a duration of 3 seconds.
+    // Initialize the Timer variable with a duration of 2 seconds.
     // When the timer expires, navigate to the WelcomeScreen.
-    timer = Timer(const Duration(seconds: 3), () async {
+    timer = Timer(const Duration(seconds: 2), () async {
       // Fetch the batterylevel from the device.
       await updateBatteryLevel();
 

@@ -53,6 +53,8 @@ class WelcomeScreen extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      // The nested ternaries handle the different
+                      // screen states.
                       SizedBox(
                         height: 300,
                         width: 300,
@@ -99,6 +101,8 @@ class WelcomeScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  // The nested ternaries handle the different
+                  // screen states.
                   PageIndicator(
                     pageIndex: 0,
                     pageController: sPageController.watch(context),

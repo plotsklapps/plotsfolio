@@ -73,6 +73,19 @@ class Utils {
   }
 
   static const String calculatorTitle = 'Calculator';
-  static const String calculatorDescription = '''
-A simple calculator app, written in Flutter. It supports basic arithmetic operations via the math_expressions package and displays the result in real-time via setState. Nothing fancy, but a great way to practice with external packages, texteditingcontrollers and setState.''';
+  static const String calculatorDescription =
+      '''A simple calculator app, written in Flutter. It supports basic arithmetic operations via the math_expressions package and displays the result in real-time via setState. Nothing fancy, but a great way to practice with external packages, texteditingcontrollers and setState.''';
+
+  // Dadjokes constants.
+  static final Uri dadjokesURL = Uri.parse('');
+
+  static Future<void> launchDadjokesURL() async {
+    if (!await launchUrl(Utils.dadjokesURL)) {
+      throw Exception('Could not launch ${Utils.dadjokesURL}');
+    }
+  }
+
+  static const String dadjokesTitle = 'Dad Jokes';
+  static const String dadjokesDescription =
+      '''Whenever you need a chuckle, dadjokes API will give you one! This app is written in Flutter and uses the RapidAPI dad-jokes endpoint. Just a neat way to practice with fetching and displaying data from an API.''';
 }

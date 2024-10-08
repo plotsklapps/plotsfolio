@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:plotsfolio/responsive_layout.dart';
+import 'package:plotsfolio/screens/calculator/calculator_screen.dart';
+import 'package:plotsfolio/screens/calculator/calculator_sidemenu.dart';
+import 'package:plotsfolio/screens/weatherscreen/weather_sidemenu.dart';
+import 'package:plotsfolio/screens/weatherscreen/weatherloading_screen.dart';
 import 'package:plotsfolio/utils/utils.dart';
 
 class HomeScreenIconRow extends StatelessWidget {
@@ -17,15 +22,35 @@ class HomeScreenIconRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           HomeScreenIcon(
-            icon: FontAwesomeIcons.chartLine,
+            icon: FontAwesomeIcons.calculator,
             onPressed: () {
-              // Navigate to the 'portfolio' screen.
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return const ResponsiveLayout(
+                      screen: CalculatorScreen(),
+                      sideMenu: CalculatorSideMenu(),
+                    );
+                  },
+                ),
+              );
             },
           ),
           HomeScreenIcon(
-            icon: FontAwesomeIcons.wallet,
+            icon: FontAwesomeIcons.cloudSun,
             onPressed: () {
-              // Navigate to the 'wallet' screen.
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return const ResponsiveLayout(
+                      screen: WeatherLoadingScreen(),
+                      sideMenu: WeatherSideMenu(),
+                    );
+                  },
+                ),
+              );
             },
           ),
           HomeScreenIcon(

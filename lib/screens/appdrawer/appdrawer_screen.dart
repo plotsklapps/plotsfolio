@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:plotsfolio/responsive_layout.dart';
 import 'package:plotsfolio/screens/calculator/calculator_screen.dart';
 import 'package:plotsfolio/screens/calculator/calculator_sidemenu.dart';
+import 'package:plotsfolio/screens/dadjokes/dadjokes_screen.dart';
 import 'package:plotsfolio/screens/weatherscreen/weather_sidemenu.dart';
 import 'package:plotsfolio/screens/weatherscreen/weatherloading_screen.dart';
 import 'package:plotsfolio/utils/utils.dart';
@@ -72,28 +73,22 @@ class AppdrawerScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Container(
-                height: 64,
-                width: 64,
-                decoration: BoxDecoration(
-                  color: Utils.lightGrey,
-                  border: Border.all(
-                    color: Utils.gunMetal,
-                    width: 4,
-                  ),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(12),
-                  ),
-                ),
-                child: IconButton(
-                  icon: const FaIcon(
-                    FontAwesomeIcons.xTwitter,
-                    color: Utils.gunMetal,
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
+              AppdrawerIcon(
+                icon: FontAwesomeIcons.faceGrinTongueWink,
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return const ResponsiveLayout(
+                          screen: DadJokesScreen(),
+                          sideMenu: CalculatorSideMenu(),
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
               Container(
                 height: 64,
