@@ -77,7 +77,8 @@ class Utils {
       '''A simple calculator app, written in Flutter. It supports basic arithmetic operations via the math_expressions package and displays the result in real-time via setState. Nothing fancy, but a great way to practice with external packages, texteditingcontrollers and setState.''';
 
   // Dadjokes constants.
-  static final Uri dadjokesURL = Uri.parse('');
+  static final Uri dadjokesURL = Uri.parse(
+      'https://github.com/plotsklapps/plotsfolio/blob/master/lib/screens/dadjokes/dadjokes_screen.dart');
 
   static Future<void> launchDadjokesURL() async {
     if (!await launchUrl(Utils.dadjokesURL)) {

@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:plotsfolio/screens/dadjokes/dadjokes_sidemenu.dart';
+import 'package:plotsfolio/state/sidemenu_open.dart';
+import 'package:plotsfolio/utils/utils.dart';
 import 'package:signals/signals_flutter.dart';
 
 // ignore_for_file: avoid_dynamic_calls
@@ -87,9 +90,45 @@ class DadJokesScreenState extends State<DadJokesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Utils.lightGrey,
       appBar: AppBar(
-        title: const Text('Dad Jokes'),
+        backgroundColor: Utils.gunMetal,
+        title: const Text(
+          Utils.dadjokesTitle,
+          style: TextStyle(
+            color: Utils.lightGrey,
+          ),
+        ),
         centerTitle: true,
+        iconTheme: const IconThemeData(
+          color: Utils.lightGrey,
+        ),
+        actions: <Widget>[
+          // Check the screensize to determine whether to show the info icon.
+          if (isSideMenuOpen.watch(context))
+            const SizedBox()
+          else
+            Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: IconButton(
+                icon: const FaIcon(FontAwesomeIcons.circleInfo),
+                onPressed: () {
+                  // Show a modalbottomsheet with the same contents as
+                  // CalculatorSideMenu.
+                  showModalBottomSheet<void>(
+                    showDragHandle: true,
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const Padding(
+                        padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
+                        child: DadjokesSidemenu(),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

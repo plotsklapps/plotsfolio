@@ -4,6 +4,7 @@ import 'package:plotsfolio/responsive_layout.dart';
 import 'package:plotsfolio/screens/calculator/calculator_screen.dart';
 import 'package:plotsfolio/screens/calculator/calculator_sidemenu.dart';
 import 'package:plotsfolio/screens/dadjokes/dadjokes_screen.dart';
+import 'package:plotsfolio/screens/dadjokes/dadjokes_sidemenu.dart';
 import 'package:plotsfolio/screens/weatherscreen/weather_sidemenu.dart';
 import 'package:plotsfolio/screens/weatherscreen/weatherloading_screen.dart';
 import 'package:plotsfolio/utils/utils.dart';
@@ -83,7 +84,7 @@ class AppdrawerScreen extends StatelessWidget {
                       builder: (BuildContext context) {
                         return const ResponsiveLayout(
                           screen: DadJokesScreen(),
-                          sideMenu: CalculatorSideMenu(),
+                          sideMenu: DadjokesSidemenu(),
                         );
                       },
                     ),
