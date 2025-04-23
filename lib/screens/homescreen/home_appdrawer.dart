@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:plotsfolio/screens/appdrawer/appdrawer_screen.dart';
 import 'package:plotsfolio/utils/utils.dart';
 
@@ -31,8 +31,8 @@ class HomeScreenAppdrawerIcon extends StatelessWidget {
               },
             );
           },
-          child: const FaIcon(
-            FontAwesomeIcons.anglesUp,
+          child: const Icon(
+            LucideIcons.chevronsUp,
           ).animate().fadeIn(delay: 800.ms, duration: 1000.ms).moveY(
                 delay: 800.ms,
                 duration: 1000.ms,

@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:plotsfolio/state/weather_signals.dart';
 
 // Determine the current position of the device.
@@ -124,29 +124,29 @@ class WeatherModel {
 
   IconData getWeatherIcon(int condition) {
     if (condition < 300) {
-      return FontAwesomeIcons.cloudBolt;
+      return LucideIcons.cloudLightning;
     } else if (condition < 400) {
-      return FontAwesomeIcons.cloudRain;
+      return LucideIcons.cloudRain;
     } else if (condition >= 500 && condition < 511) {
-      return FontAwesomeIcons.cloudShowersHeavy;
+      return LucideIcons.cloudRainWind;
     } else if (condition == 511) {
-      return FontAwesomeIcons.snowflake;
+      return LucideIcons.snowflake;
     } else if (condition > 511 && condition <= 531) {
-      return FontAwesomeIcons.cloudShowersWater;
+      return LucideIcons.cloudHail;
     } else if (condition < 700) {
-      return FontAwesomeIcons.snowman;
+      return LucideIcons.cloudSnow;
     } else if (condition < 800) {
-      return FontAwesomeIcons.smog;
+      return LucideIcons.cloudFog;
     } else if (condition == 800) {
-      return FontAwesomeIcons.sun;
+      return LucideIcons.sun;
     } else if (condition == 801) {
-      return FontAwesomeIcons.cloud;
+      return LucideIcons.cloud;
     } else if (condition == 802) {
-      return FontAwesomeIcons.cloudSun;
+      return LucideIcons.cloudSun;
     } else if (condition <= 804) {
-      return FontAwesomeIcons.cloudSun;
+      return LucideIcons.cloudSun;
     } else {
-      return FontAwesomeIcons.solidCircleQuestion;
+      return LucideIcons.shieldQuestion;
     }
   }
 }

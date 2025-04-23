@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:plotsfolio/responsive_layout.dart';
 import 'package:plotsfolio/screens/calculator/calculator_screen.dart';
 import 'package:plotsfolio/screens/calculator/calculator_sidemenu.dart';
@@ -22,7 +22,7 @@ class HomeScreenIconRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           HomeScreenIcon(
-            icon: FontAwesomeIcons.calculator,
+            icon: LucideIcons.calculator,
             onPressed: () {
               Navigator.push(
                 context,
@@ -38,7 +38,7 @@ class HomeScreenIconRow extends StatelessWidget {
             },
           ),
           HomeScreenIcon(
-            icon: FontAwesomeIcons.cloudSun,
+            icon: LucideIcons.cloudSun,
             onPressed: () {
               Navigator.push(
                 context,
@@ -54,19 +54,19 @@ class HomeScreenIconRow extends StatelessWidget {
             },
           ),
           HomeScreenIcon(
-            icon: FontAwesomeIcons.gear,
+            icon: LucideIcons.settings,
             onPressed: () {
               // Navigate to the 'settings' screen.
             },
           ),
           HomeScreenIcon(
-            icon: FontAwesomeIcons.user,
+            icon: LucideIcons.user,
             onPressed: () {
               // Navigate to the 'profile' screen.
             },
           ),
           HomeScreenIcon(
-            icon: FontAwesomeIcons.bell,
+            icon: LucideIcons.bell,
             onPressed: () {
               // Navigate to the 'notifications' screen.
             },
@@ -103,7 +103,7 @@ class HomeScreenIcon extends StatelessWidget {
         ),
       ),
       child: IconButton(
-        icon: FaIcon(
+        icon: Icon(
           icon,
           color: Utils.gunMetal,
         ),

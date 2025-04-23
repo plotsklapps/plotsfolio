@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:plotsfolio/responsive_layout.dart';
 import 'package:plotsfolio/screens/homescreen/home_screen.dart';
 import 'package:plotsfolio/screens/homescreen/home_sidemenu.dart';
@@ -149,10 +149,10 @@ class WelcomeScreen extends StatelessWidget {
         },
         backgroundColor:
             sCurrentPage.watch(context) == 2 ? Utils.flame : Utils.gunMetal,
-        child: FaIcon(
+        child: Icon(
           sCurrentPage.watch(context) == 2
-              ? FontAwesomeIcons.forward
-              : FontAwesomeIcons.play,
+              ? LucideIcons.chevronRight
+              : LucideIcons.chevronsRight,
           color:
               sCurrentPage.watch(context) == 2 ? Utils.gunMetal : Utils.flame,
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:plotsfolio/state/current_batterylevel.dart';
 import 'package:plotsfolio/state/current_time.dart';
 import 'package:plotsfolio/state/current_volume.dart';
@@ -33,7 +33,7 @@ class HomeScreenNotificationBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text('12:00 Sun, Jun 16'),
-                      FaIcon(FontAwesomeIcons.gear),
+                      Icon(LucideIcons.settings),
                     ],
                   ),
                 ),
@@ -44,7 +44,7 @@ class HomeScreenNotificationBar extends StatelessWidget {
                 const NotificationBarLargeVolumeSlider(),
                 const SizedBox(height: 8),
                 NotificationBarLargeNotification(
-                  icon: FontAwesomeIcons.xTwitter,
+                  icon: LucideIcons.twitter,
                   iconSize: 16,
                   iconColor: Utils.gunMetal,
                   title: ':plotsklapps',
@@ -56,7 +56,7 @@ class HomeScreenNotificationBar extends StatelessWidget {
                   expandedSubtitle: 'Click here to visit my X profile',
                 ),
                 NotificationBarLargeNotification(
-                  icon: FontAwesomeIcons.github,
+                  icon: LucideIcons.github,
                   iconSize: 16,
                   iconColor: Utils.gunMetal,
                   title: ':plotsklapps',
@@ -68,7 +68,7 @@ class HomeScreenNotificationBar extends StatelessWidget {
                   expandedSubtitle: 'Click here to visit my GitHub profile',
                 ),
                 NotificationBarLargeNotification(
-                  icon: FontAwesomeIcons.hashnode,
+                  icon: LucideIcons.notebookPen,
                   iconSize: 16,
                   iconColor: Utils.gunMetal,
                   title: ':plotsklapps',
@@ -100,19 +100,19 @@ class NotificationBarIconRowLeft extends StatelessWidget {
       children: <Widget>[
         Row(
           children: <Widget>[
-            FaIcon(
-              FontAwesomeIcons.xTwitter,
+            Icon(
+              LucideIcons.twitter,
               size: 20,
               color: Utils.gunMetal,
             ),
-            FaIcon(
-              FontAwesomeIcons.github,
+            Icon(
+              LucideIcons.github,
               size: 20,
               color: Utils.gunMetal,
             ),
             SizedBox(width: 2),
-            FaIcon(
-              FontAwesomeIcons.hashnode,
+            Icon(
+              LucideIcons.notebookPen,
               size: 20,
               color: Utils.gunMetal,
             ),
@@ -133,13 +133,13 @@ class NotificationBarIconRowRight extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        const FaIcon(
-          FontAwesomeIcons.wifi,
+        const Icon(
+          LucideIcons.wifi,
           size: 16,
           color: Utils.gunMetal,
         ),
-        const FaIcon(
-          FontAwesomeIcons.signal,
+        const Icon(
+          LucideIcons.signal,
           size: 16,
           color: Utils.gunMetal,
         ),
@@ -153,10 +153,10 @@ class NotificationBarIconRowRight extends StatelessWidget {
         ),
         const SizedBox(width: 4),
         if (sBatteryLevel.watch(context) == '100%')
-          const FaIcon(FontAwesomeIcons.batteryFull)
+          const Icon(LucideIcons.batteryFull)
         else
-          const FaIcon(
-            FontAwesomeIcons.batteryThreeQuarters,
+          const Icon(
+            LucideIcons.batteryMedium,
             size: 20,
             color: Utils.gunMetal,
           ),
@@ -201,7 +201,7 @@ class NotificationBarLargeToggle extends StatelessWidget {
     return CircleAvatar(
       radius: radius,
       backgroundColor: color,
-      child: FaIcon(
+      child: Icon(
         icon,
         size: iconSize,
         color: iconColor,
@@ -223,42 +223,42 @@ class NotificationBarLargeToggleRow extends StatelessWidget {
         NotificationBarLargeToggle(
           radius: 20,
           color: Utils.flame,
-          icon: FontAwesomeIcons.wifi,
+          icon: LucideIcons.wifi,
           iconSize: 16,
           iconColor: Utils.gunMetal,
         ),
         NotificationBarLargeToggle(
           radius: 20,
           color: Utils.flame,
-          icon: FontAwesomeIcons.signal,
+          icon: LucideIcons.signal,
           iconSize: 16,
           iconColor: Utils.gunMetal,
         ),
         NotificationBarLargeToggle(
           radius: 20,
           color: Utils.flame,
-          icon: FontAwesomeIcons.signal,
+          icon: LucideIcons.signal,
           iconSize: 16,
           iconColor: Utils.gunMetal,
         ),
         NotificationBarLargeToggle(
           radius: 20,
           color: Utils.flame,
-          icon: FontAwesomeIcons.bluetooth,
+          icon: LucideIcons.bluetooth,
           iconSize: 20,
           iconColor: Utils.gunMetal,
         ),
         NotificationBarLargeToggle(
           radius: 20,
           color: Utils.gunMetal,
-          icon: FontAwesomeIcons.unlock,
+          icon: LucideIcons.lockOpen,
           iconSize: 16,
           iconColor: Utils.lightGrey,
         ),
         NotificationBarLargeToggle(
           radius: 20,
           color: Utils.gunMetal,
-          icon: FontAwesomeIcons.solidLightbulb,
+          icon: LucideIcons.lightbulb,
           iconSize: 16,
           iconColor: Utils.lightGrey,
         ),
@@ -315,15 +315,15 @@ class NotificationBarLargeNotification extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ExpansionTile(
-        leading: FaIcon(
+        leading: Icon(
           icon,
           size: iconSize,
           color: iconColor,
         ),
         title: Text(title),
         subtitle: Text(subtitle),
-        trailing: const FaIcon(
-          FontAwesomeIcons.chevronDown,
+        trailing: const Icon(
+          LucideIcons.chevronDown,
           size: 16,
           color: Utils.gunMetal,
         ),
@@ -358,8 +358,8 @@ class HomeScreenCameraCutout extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FaIcon(
-              FontAwesomeIcons.solidCircleDot,
+            Icon(
+              LucideIcons.squircle,
               size: 20,
               color: Utils.gunMetal,
             ),

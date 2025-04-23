@@ -2,7 +2,7 @@
 // ignore_for_file: avoid_dynamic_calls
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:plotsfolio/screens/weatherscreen/weather_services.dart';
 import 'package:plotsfolio/state/weather_signals.dart';
 import 'package:plotsfolio/utils/utils.dart';
@@ -102,7 +102,7 @@ class WeatherScreenState extends State<WeatherScreen> {
                     updateUI(weatherData);
                   },
                   icon: const Icon(
-                    FontAwesomeIcons.locationDot,
+                    LucideIcons.mapPin,
                     size: 32,
                     color: Utils.flame,
                   ),
@@ -134,8 +134,8 @@ class WeatherScreenState extends State<WeatherScreen> {
                     ),
                     icon: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: FaIcon(
-                        FontAwesomeIcons.city,
+                      child: Icon(
+                        LucideIcons.building2,
                       ),
                     ),
                     suffixIcon: IconButton(
@@ -149,8 +149,8 @@ class WeatherScreenState extends State<WeatherScreen> {
                         );
                         updateUI(weatherData);
                       },
-                      icon: const FaIcon(
-                        FontAwesomeIcons.circleArrowRight,
+                      icon: const Icon(
+                        LucideIcons.chevronRight,
                         color: Utils.flame,
                       ),
                     ),

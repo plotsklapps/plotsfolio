@@ -1,26 +1,26 @@
-// Ignoring because the dad-jokes API returns dynamic data.
-// ignore_for_file: avoid_dynamic_calls
-
 import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:plotsfolio/screens/dadjokes/dadjokes_sidemenu.dart';
 import 'package:plotsfolio/state/sidemenu_open.dart';
 import 'package:plotsfolio/utils/utils.dart';
 import 'package:signals/signals_flutter.dart';
 
-const String apiUrl = 'https://dad-jokes.p.rapidapi.com/random/joke';
-const String apiHost = 'dad-jokes.p.rapidapi.com';
-const String apiKey = '31f0e18aa0msh7ac1cf7f28b021cp1a3527jsnf0116cb148cc';
+const String kApiUrl = 'https://dad-jokes.p.rapidapi.com/joke/ai/knock-knock';
+const String kApiHost = 'dad-jokes.p.rapidapi.com';
+const String kApiKey = '4e9b09616amshcb8bc4ff62ef298p15f8d8jsn8527db553cab';
 
 // Initial joke text
 final Signal<String> sJokeSetup = signal<String>('Loading...');
 // Initial punchline text
 final Signal<String> sPunchline = signal<String>('Tap for punchline...');
+// Initial joke type text
+final Signal<String> sJokeType = signal<String>('');
+
 // Bool for punchline visibility
 final Signal<bool> sIsPunchlineVisible = signal<bool>(false);
 
@@ -42,10 +42,10 @@ class DadJokesScreenState extends State<DadJokesScreen> {
 
     // Send GET request to dad-jokes API
     final http.Response response = await http.get(
-      Uri.parse(apiUrl),
+      Uri.parse(kApiUrl),
       headers: <String, String>{
-        'X-RapidAPI-Key': apiKey,
-        'X-RapidAPI-Host': apiHost,
+        'X-RapidAPI-Key': kApiKey,
+        'X-RapidAPI-Host': kApiHost,
       },
     );
 
@@ -53,11 +53,13 @@ class DadJokesScreenState extends State<DadJokesScreen> {
     if (response.statusCode == 200) {
       // Decode JSON response
       final dynamic data = jsonDecode(response.body);
+      // Get joke type
+      final String type = data['body'][0]['type'] as String;
       // Get joke setup
       final String setup = data['body'][0]['setup'] as String;
       // Get joke punchline
       final String punchline = data['body'][0]['punchline'] as String;
-      // Update joke text and punchline text
+      sJokeType.value = type;
       sJokeSetup.value = setup;
       sPunchline.value = punchline;
     } else {
@@ -112,7 +114,7 @@ class DadJokesScreenState extends State<DadJokesScreen> {
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: IconButton(
-                icon: const FaIcon(FontAwesomeIcons.circleInfo),
+                icon: const Icon(LucideIcons.info),
                 onPressed: () {
                   // Show a modalbottomsheet with the same contents as
                   // CalculatorSideMenu.
@@ -157,13 +159,17 @@ class DadJokesScreenState extends State<DadJokesScreen> {
                     ),
                   ),
                 ),
+                Text(
+                  sJokeType.watch(context),
+                  textAlign: TextAlign.center,
+                ),
                 const SizedBox(height: 20),
                 if (sIsPunchlineVisible.value)
                   Card(
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Text(
-                        sPunchline.watch(context),
+                        sPunchline.value,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -194,8 +200,8 @@ class DadJokesScreenState extends State<DadJokesScreen> {
         tooltip:
             sIsPunchlineVisible.value ? 'Get another joke' : 'Show punchline',
         child: sIsPunchlineVisible.watch(context)
-            ? const FaIcon(FontAwesomeIcons.rotate)
-            : const FaIcon(FontAwesomeIcons.eye),
+            ? const Icon(LucideIcons.refreshCcw)
+            : const Icon(LucideIcons.eye),
       ),
     );
   }

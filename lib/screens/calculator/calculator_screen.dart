@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:plotsfolio/screens/calculator/calculator_sidemenu.dart';
 import 'package:plotsfolio/state/sidemenu_open.dart';
@@ -16,29 +16,24 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class CalculatorScreenState extends State<CalculatorScreen> {
-  // TextEditingController is used to control the text field.
+  // Controls the text field.
   final TextEditingController _controller = TextEditingController();
-
-  // The result of the calculation as a String, instantiated as an empty string.
+  // Stores the result of calculations.
   String _result = '';
 
   void _onButtonPressed(String value) {
-    // This function is called when any button is pressed.
-    // The value can be a number, an operator, or a special character.
     setState(() {
       if (value == 'C') {
-        // If the value is 'C', the text field is cleared and the result is set
-        // to an empty string.
+        // Clear the text field and the result.
         _controller.clear();
         _result = '';
       } else if (value == '←') {
-        // If the value is '←', the last character in the text field is removed.
+        // Remove the last character.
         _controller.text = _controller.text.isNotEmpty
             ? _controller.text.substring(0, _controller.text.length - 1)
             : '';
       } else if (value == '=' || value == '\n') {
-        // If the value is '=' or the user hits the enter key, the result is
-        // calculated.
+        // Calculate the result.
         _calculateResult();
       } else {
         // Otherwise, the value is appended to the text field.
@@ -48,14 +43,14 @@ class CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   void _calculateResult() {
+    // Use the math_expressions package to parse and evaluate the expression.
+    final String expression = _controller.text.replaceAll('√', 'sqrt');
+    if (expression.isEmpty) return;
     try {
-      // Use the math_expressions package to parse and evaluate the expression.
       final GrammarParser parser = GrammarParser();
-      final Expression exp =
-          parser.parse(_controller.text.replaceAll('√', 'sqrt'));
+      final Expression exp = parser.parse(expression);
       final ContextModel contextModel = ContextModel();
-      final double eval =
-          exp.evaluate(EvaluationType.REAL, contextModel) as double;
+      final dynamic eval = exp.evaluate(EvaluationType.REAL, contextModel);
 
       // Store the evaluated result in the _result String variable.
       _result = eval.toString();
@@ -89,11 +84,10 @@ class CalculatorScreenState extends State<CalculatorScreen> {
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: IconButton(
-                icon: const FaIcon(FontAwesomeIcons.circleInfo),
+                icon: const Icon(LucideIcons.info),
                 onPressed: () {
                   // Show a modalbottomsheet with the same contents as
-                  // CalculatorSideMenu.
-                  showModalBottomSheet<void>(
+                  showModalBottomSheet<Widget>(
                     showDragHandle: true,
                     context: context,
                     builder: (BuildContext context) {
@@ -133,10 +127,9 @@ class CalculatorScreenState extends State<CalculatorScreen> {
             Align(
               alignment: Alignment.centerRight,
               child: TextField(
-                // The text field is controlled by the TextEditingController.
-                controller: _controller,
+                controller:
+                    _controller, // The text field is controlled by the TextEditingController.
                 // This particular keyboard type is used to allow the user to
-                // enter numbers and decimal points.
                 keyboardType:
                     const TextInputType.numberWithOptions(decimal: true),
                 style: const TextStyle(
@@ -152,8 +145,9 @@ class CalculatorScreenState extends State<CalculatorScreen> {
                 },
               ),
             ),
-            const SizedBox(height: 24),
-            // This is where ChatGPT helped a little bit. It's an easy way to
+            const SizedBox(
+                height:
+                    24), // This is where ChatGPT helped a little bit. It's an easy way to
             // create a grid of buttons.
             ..._buildButtonRows(),
           ],
@@ -180,9 +174,9 @@ class CalculatorScreenState extends State<CalculatorScreen> {
           children: row.map(
             (String label) {
               return CalculatorButton(
+                color: label == 'C' ? Colors.red : Utils.gunMetal,
                 value: label,
                 onPressed: _onButtonPressed,
-                color: label == 'C' ? Colors.red : Utils.gunMetal,
               );
             },
           ).toList(),
@@ -195,75 +189,38 @@ class CalculatorScreenState extends State<CalculatorScreen> {
 // This is a custom widget that represents a button in the calculator.
 class CalculatorButton extends StatelessWidget {
   const CalculatorButton({
+    required this.color,
     required this.value,
     required this.onPressed,
-    this.color = Utils.gunMetal,
     super.key,
   });
-
+  final Color color;
   final String value;
   final void Function(String) onPressed;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    // IconButton is still the GOAT for creating buttons with icons.
-    return IconButton(
-      icon: FaIcon(
-        _getIconData(value),
-        color: color,
-      ),
-      onPressed: () {
-        onPressed(value);
-      },
-    );
-  }
-
-  // This function maps the button label to the corresponding FontAwesome icon.
-  IconData _getIconData(String value) {
-    switch (value) {
-      case '1':
-        return FontAwesomeIcons.one;
-      case '2':
-        return FontAwesomeIcons.two;
-      case '3':
-        return FontAwesomeIcons.three;
-      case '4':
-        return FontAwesomeIcons.four;
-      case '5':
-        return FontAwesomeIcons.five;
-      case '6':
-        return FontAwesomeIcons.six;
-      case '7':
-        return FontAwesomeIcons.seven;
-      case '8':
-        return FontAwesomeIcons.eight;
-      case '9':
-        return FontAwesomeIcons.nine;
-      case '0':
-        return FontAwesomeIcons.zero;
-      case '+':
-        return FontAwesomeIcons.plus;
-      case '-':
-        return FontAwesomeIcons.minus;
-      case '*':
-        return FontAwesomeIcons.xmark;
-      case '/':
-        return FontAwesomeIcons.divide;
-      case '^':
-        return FontAwesomeIcons.superscript;
-      case '√':
-        return FontAwesomeIcons.squareRootVariable;
-      case '.':
-        return FontAwesomeIcons.codeCommit;
-      case '=':
-        return FontAwesomeIcons.equals;
-      case 'C':
-        return FontAwesomeIcons.c;
-      case '←':
-        return FontAwesomeIcons.deleteLeft;
-      default:
-        return FontAwesomeIcons.question;
+    // This is a custom widget that represents a button in the calculator.
+    String getButtonText(String value) {
+      return value;
     }
+
+    return SizedBox(
+      width: 64,
+      height: 64,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: color,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+        onPressed: () {
+          onPressed(value);
+        },
+        child: Text(
+          getButtonText(value),
+          style: const TextStyle(color: Utils.lightGrey, fontSize: 20),
+        ),
+      ),
+    );
   }
 }
