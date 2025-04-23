@@ -42,7 +42,13 @@ class DadjokesSidemenu extends StatelessWidget {
                   const Text('Tiny code example:'),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: const Placeholder().animate().fade(delay: 800.ms, duration: 1200.ms,).shimmer(
+                    child: const Placeholder()
+                        .animate()
+                        .fade(
+                          delay: 800.ms,
+                          duration: 1200.ms,
+                        )
+                        .shimmer(
                           delay: 2000.ms,
                           duration: 2400.ms,
                         ),
