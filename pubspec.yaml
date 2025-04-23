@@ -20,6 +20,7 @@ dependencies:
   geolocator: ^14.0.0
   http: any
   intl: ^0.20.2
+  logger: ^2.5.0
   math_expressions: ^2.5.0
   signals: ^6.0.2
   url_launcher: ^6.3.0
