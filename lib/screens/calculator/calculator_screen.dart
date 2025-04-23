@@ -50,7 +50,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
   void _calculateResult() {
     try {
       // Use the math_expressions package to parse and evaluate the expression.
-      final Parser parser = Parser();
+      final GrammarParser parser = GrammarParser();
       final Expression exp =
           parser.parse(_controller.text.replaceAll('√', 'sqrt'));
       final ContextModel contextModel = ContextModel();
