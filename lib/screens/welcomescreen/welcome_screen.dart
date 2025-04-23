@@ -151,8 +151,8 @@ class WelcomeScreen extends StatelessWidget {
             sCurrentPage.watch(context) == 2 ? Utils.flame : Utils.gunMetal,
         child: Icon(
           sCurrentPage.watch(context) == 2
-              ? LucideIcons.chevronRight
-              : LucideIcons.chevronsRight,
+              ? LucideIcons.chevronsRight
+              : LucideIcons.chevronRight,
           color:
               sCurrentPage.watch(context) == 2 ? Utils.gunMetal : Utils.flame,
         ),

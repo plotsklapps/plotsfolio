@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:plotsfolio/utils/utils.dart';
+import 'package:url_launcher/link.dart';
 
 class CalculatorSideMenu extends StatelessWidget {
   const CalculatorSideMenu({super.key});
@@ -52,11 +53,14 @@ class CalculatorSideMenu extends StatelessWidget {
                   const SizedBox(height: 16),
                   const Text('For the full code, visit:'),
                   const SizedBox(height: 8),
-                  const InkWell(
-                    onTap: Utils.launchCalculatorURL,
-                    child: Text(
-                      'Calculator repository on GitHub',
-                      style: TextStyle(color: Colors.blue),
+                  Link(
+                    uri: Uri.parse(
+                      'https://github.com/plotsklapps/plotsfolio/blob/master/lib/screens/calculator/calculator_screen.dart',
+                    ),
+                    builder: (BuildContext context, FollowLink? followLink) =>
+                        ElevatedButton(
+                      onPressed: followLink,
+                      child: Text('Calculator respository on Github'),
                     ),
                   ),
                 ],

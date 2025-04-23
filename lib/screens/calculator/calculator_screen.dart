@@ -16,9 +16,7 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class CalculatorScreenState extends State<CalculatorScreen> {
-  // Controls the text field.
   final TextEditingController _controller = TextEditingController();
-  // Stores the result of calculations.
   String _result = '';
 
   void _onButtonPressed(String value) {
@@ -78,8 +76,8 @@ class CalculatorScreenState extends State<CalculatorScreen> {
         ),
         actions: <Widget>[
           // Check the screensize to determine whether to show the info icon.
-          if (isSideMenuOpen.watch(context))
-            const SizedBox()
+          if (sSideMenu.watch(context))
+            const SizedBox.shrink()
           else
             Padding(
               padding: const EdgeInsets.only(right: 8),
@@ -127,9 +125,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
             Align(
               alignment: Alignment.centerRight,
               child: TextField(
-                controller:
-                    _controller, // The text field is controlled by the TextEditingController.
-                // This particular keyboard type is used to allow the user to
+                controller: _controller,
                 keyboardType:
                     const TextInputType.numberWithOptions(decimal: true),
                 style: const TextStyle(

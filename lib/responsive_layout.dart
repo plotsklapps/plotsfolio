@@ -36,11 +36,11 @@ class ResponsiveLayout extends StatelessWidget {
         // screen widget.
         if (constraints.maxWidth < 840) {
           // Set the signal to false.
-          isSideMenuOpen.value = false;
+          sSideMenu.value = false;
           return screen;
         } else {
           // Set the signal to true.
-          isSideMenuOpen.value = true;
+          sSideMenu.value = true;
 
           // If the screen width is 840 pixels or more, return a scaffold
           // with a side menu and the screen widget inside a phone frame.

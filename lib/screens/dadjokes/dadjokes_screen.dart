@@ -108,7 +108,7 @@ class DadJokesScreenState extends State<DadJokesScreen> {
         ),
         actions: <Widget>[
           // Check the screensize to determine whether to show the info icon.
-          if (isSideMenuOpen.watch(context))
+          if (sSideMenu.watch(context))
             const SizedBox()
           else
             Padding(

@@ -1,4 +1,3 @@
 import 'package:signals/signals_flutter.dart';
 
-final Signal<bool> isSideMenuOpen =
-    signal<bool>(false, debugLabel: 'isSideMenuOpen');
+final Signal<bool> sSideMenu = signal<bool>(false, debugLabel: 'sSideMenu');
