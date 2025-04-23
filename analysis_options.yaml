@@ -1,30 +1,25 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
-#
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
-
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
 include: package:very_good_analysis/analysis_options.yaml
 
 linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
-    omit_local_variable_types: false
+    sort_constructors_first: true
+    sort_pub_dependencies: true
+    avoid_print: true
+    avoid_relative_lib_imports: true
+    avoid_unnecessary_containers: true
+    prefer_single_quotes: true
+    prefer_const_constructors: true
+    prefer_int_literals: true
+    always_use_package_imports: true
+    always_put_required_named_parameters_first: true
     always_specify_types: true
+    omit_local_variable_types: false
     public_member_api_docs: false
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+    require_trailing_commas: true
+    avoid_empty_else: true
+    avoid_init_to_null: true
+    avoid_returning_null_for_future: true
+    avoid_types_as_parameter_names: true
+    prefer_final_locals: true
+    prefer_is_not_empty: true
+    unawaited_futures: true

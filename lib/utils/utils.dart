@@ -78,7 +78,7 @@ class Utils {
 
   // Dadjokes constants.
   static final Uri dadjokesURL = Uri.parse(
-      'https://github.com/plotsklapps/plotsfolio/blob/master/lib/screens/dadjokes/dadjokes_screen.dart');
+      'https://github.com/plotsklapps/plotsfolio/blob/master/lib/screens/dadjokes/dadjokes_screen.dart',);
 
   static Future<void> launchDadjokesURL() async {
     if (!await launchUrl(Utils.dadjokesURL)) {

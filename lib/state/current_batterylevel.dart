@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+
 import 'package:battery_plus/battery_plus.dart';
 import 'package:signals/signals_flutter.dart';
 
@@ -17,7 +19,8 @@ Future<void> updateBatteryLevel() async {
   try {
     final int batteryLevel = await _battery.batteryLevel;
     sBatteryLevel.value = '$batteryLevel%';
-  } catch (e) {
+  } on Exception catch (e) {
     sBatteryLevel.value = '85%';
+    log('$e');
   }
 }

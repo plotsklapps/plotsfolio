@@ -41,49 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCaX-gP6bt____us4C_HNgcgNrPQaCh_k4',
-    appId: '1:194129366559:web:268fc61268f1b46e500f2a',
-    messagingSenderId: '194129366559',
-    projectId: 'plotsfolio',
-    authDomain: 'plotsfolio.firebaseapp.com',
-    storageBucket: 'plotsfolio.appspot.com',
-    measurementId: 'G-E9L5RJZEDP',
+    apiKey: 'AIzaSyDUG3gXLvdC9V55iOdl_wvDKAdDX88-jOQ',
+    appId: '1:710120338502:web:be309e0d59ee4daf594647',
+    messagingSenderId: '710120338502',
+    projectId: 'plotsklapps-dev',
+    authDomain: 'plotsklapps-dev.firebaseapp.com',
+    storageBucket: 'plotsklapps-dev.firebasestorage.app',
+    measurementId: 'G-ZH85ZCZ12P',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDPE7YAASrnuCHyA1Gi9JV83IgX3nyqev0',
-    appId: '1:194129366559:android:cf94387356673930500f2a',
-    messagingSenderId: '194129366559',
-    projectId: 'plotsfolio',
-    storageBucket: 'plotsfolio.appspot.com',
+    apiKey: 'AIzaSyDOAZCRnpJ9P0bfTd_wEovTyeO4-j5WjBo',
+    appId: '1:710120338502:android:93704a8e6fdfa2d7594647',
+    messagingSenderId: '710120338502',
+    projectId: 'plotsklapps-dev',
+    storageBucket: 'plotsklapps-dev.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDiEMvwoEObXcylOWr3dktyEzTI2LlUVwE',
-    appId: '1:194129366559:ios:0a5993588f65ff3d500f2a',
-    messagingSenderId: '194129366559',
-    projectId: 'plotsfolio',
-    storageBucket: 'plotsfolio.appspot.com',
+    apiKey: 'AIzaSyDwnIpFoT5ij9Gz4ECe3XD0mX6TJysFVF0',
+    appId: '1:710120338502:ios:3936fbeeaad887ea594647',
+    messagingSenderId: '710120338502',
+    projectId: 'plotsklapps-dev',
+    storageBucket: 'plotsklapps-dev.firebasestorage.app',
     iosBundleId: 'dev.plotsklapps.plotsfolio',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDiEMvwoEObXcylOWr3dktyEzTI2LlUVwE',
-    appId: '1:194129366559:ios:0a5993588f65ff3d500f2a',
-    messagingSenderId: '194129366559',
-    projectId: 'plotsfolio',
-    storageBucket: 'plotsfolio.appspot.com',
+    apiKey: 'AIzaSyDwnIpFoT5ij9Gz4ECe3XD0mX6TJysFVF0',
+    appId: '1:710120338502:ios:3936fbeeaad887ea594647',
+    messagingSenderId: '710120338502',
+    projectId: 'plotsklapps-dev',
+    storageBucket: 'plotsklapps-dev.firebasestorage.app',
     iosBundleId: 'dev.plotsklapps.plotsfolio',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCaX-gP6bt____us4C_HNgcgNrPQaCh_k4',
-    appId: '1:194129366559:web:875c35cee4b33fb9500f2a',
-    messagingSenderId: '194129366559',
-    projectId: 'plotsfolio',
-    authDomain: 'plotsfolio.firebaseapp.com',
-    storageBucket: 'plotsfolio.appspot.com',
-    measurementId: 'G-JBD2ZQMHPE',
+    apiKey: 'AIzaSyDUG3gXLvdC9V55iOdl_wvDKAdDX88-jOQ',
+    appId: '1:710120338502:web:be309e0d59ee4daf594647',
+    messagingSenderId: '710120338502',
+    projectId: 'plotsklapps-dev',
+    authDomain: 'plotsklapps-dev.firebaseapp.com',
+    storageBucket: 'plotsklapps-dev.firebasestorage.app',
+    measurementId: 'G-ZH85ZCZ12P',
   );
 
 }

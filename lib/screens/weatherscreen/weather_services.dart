@@ -47,7 +47,7 @@ Location permissions are permanently denied, we cannot request permissions.''',
   // When we reach here, permissions are granted and we can
   // continue accessing the position of the device.
   return Geolocator.getCurrentPosition(
-    desiredAccuracy: LocationAccuracy.high,
+    locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
   );
 }
 
@@ -65,7 +65,7 @@ class Location {
       // Use the position of user to retrieve latitude/longitude Position.
       latitude = position.latitude;
       longitude = position.longitude;
-    } catch (e) {
+    } on Exception catch (e) {
       if (kDebugMode) {
         print(e);
       }

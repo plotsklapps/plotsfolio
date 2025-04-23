@@ -1,3 +1,6 @@
+// Ignoring because the dad-jokes API returns dynamic data.
+// ignore_for_file: avoid_dynamic_calls
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -9,8 +12,6 @@ import 'package:plotsfolio/screens/dadjokes/dadjokes_sidemenu.dart';
 import 'package:plotsfolio/state/sidemenu_open.dart';
 import 'package:plotsfolio/utils/utils.dart';
 import 'package:signals/signals_flutter.dart';
-
-// ignore_for_file: avoid_dynamic_calls
 
 const String apiUrl = 'https://dad-jokes.p.rapidapi.com/random/joke';
 const String apiHost = 'dad-jokes.p.rapidapi.com';

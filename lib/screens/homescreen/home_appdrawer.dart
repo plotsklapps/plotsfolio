@@ -24,7 +24,7 @@ class HomeScreenAppdrawerIcon extends StatelessWidget {
               isScrollControlled: true,
               barrierLabel: 'Appdrawer',
               barrierColor: Colors.transparent,
-              backgroundColor: Utils.gunMetal.withOpacity(0.4),
+              backgroundColor: Utils.gunMetal.withValues(alpha: 0.4),
               context: context,
               builder: (BuildContext context) {
                 return const AppdrawerScreen();

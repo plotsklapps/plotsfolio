@@ -59,7 +59,7 @@ class CalculatorScreenState extends State<CalculatorScreen> {
 
       // Store the evaluated result in the _result String variable.
       _result = eval.toString();
-    } catch (e) {
+    } on Exception {
       // If an error occurs, set the result to 'Error'.
       _result = 'Error';
     }

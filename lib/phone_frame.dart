@@ -26,7 +26,7 @@ class PhoneFrame extends StatelessWidget {
               borderRadius: BorderRadius.circular(30), // Adjusted borderRadius
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: Utils.gunMetal.withOpacity(0.5),
+                  color: Utils.gunMetal.withValues(alpha: 0.5),
                   spreadRadius: 2,
                   blurRadius: 7,
                   offset: const Offset(12, 12),

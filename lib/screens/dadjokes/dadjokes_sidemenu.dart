@@ -42,10 +42,7 @@ class DadjokesSidemenu extends StatelessWidget {
                   const Text('Tiny code example:'),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    // TODO(plotsklapps): Change the snippet to a real example.
-                    child: Image.asset(
-                      'assets/images/calculator/calculatorcodesnippet.png',
-                    ).animate().fade(delay: 800.ms, duration: 1200.ms).shimmer(
+                    child: const Placeholder().animate().fade(delay: 800.ms, duration: 1200.ms,).shimmer(
                           delay: 2000.ms,
                           duration: 2400.ms,
                         ),
