@@ -1,3 +1,6 @@
+// Ignored because of dynamic calls in the dad jokes API.
+// ignore_for_file: avoid_dynamic_calls
+
 import 'dart:async';
 import 'dart:convert';
 

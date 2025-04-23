@@ -41,6 +41,7 @@ class CalculatorSideMenu extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   const Text('Tiny code example:'),
+                  const SizedBox(height: 8),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
@@ -57,11 +58,12 @@ class CalculatorSideMenu extends StatelessWidget {
                     uri: Uri.parse(
                       'https://github.com/plotsklapps/plotsfolio/blob/master/lib/screens/calculator/calculator_screen.dart',
                     ),
-                    builder: (BuildContext context, FollowLink? followLink) =>
-                        ElevatedButton(
-                      onPressed: followLink,
-                      child: Text('Calculator respository on Github'),
-                    ),
+                    builder: (BuildContext context, FollowLink? followLink) {
+                      return TextButton(
+                        onPressed: followLink,
+                        child: const Text('Calculator respository on Github'),
+                      );
+                    },
                   ),
                 ],
               ),

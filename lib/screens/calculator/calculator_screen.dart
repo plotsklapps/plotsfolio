@@ -142,8 +142,8 @@ class CalculatorScreenState extends State<CalculatorScreen> {
               ),
             ),
             const SizedBox(
-                height:
-                    24), // This is where ChatGPT helped a little bit. It's an easy way to
+              height: 24,
+            ), // This is where ChatGPT helped a little bit. It's an easy way to
             // create a grid of buttons.
             ..._buildButtonRows(),
           ],
@@ -206,9 +206,9 @@ class CalculatorButton extends StatelessWidget {
       height: 64,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: color,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
         onPressed: () {
           onPressed(value);
         },
