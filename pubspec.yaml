@@ -20,7 +20,7 @@ dependencies:
   http: any
   intl: ^0.20.2
   logger: ^2.5.0
-  lucide_icons_flutter: ^2.0.6
+  lucide_icons_flutter: ^3.0.5
   math_expressions: ^2.5.0
   signals: ^6.0.2
   url_launcher: ^6.3.0
@@ -30,7 +30,7 @@ dev_dependencies:
   flutter_native_splash: ^2.4.0
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^7.0.0
+  very_good_analysis: ^8.0.0
 
 flutter_native_splash:
   # This package generates native code to customize Flutter's default white native splash screen
