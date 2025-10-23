@@ -146,7 +146,7 @@ class WeatherModel {
     } else if (condition <= 804) {
       return LucideIcons.cloudSun;
     } else {
-      return LucideIcons.shieldQuestion;
+      return LucideIcons.shieldQuestionMark;
     }
   }
 }
