@@ -1,7 +1,5 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:plotsfolio/firebase_options.dart';
 import 'package:plotsfolio/responsive_layout.dart';
 import 'package:plotsfolio/screens/splashscreen/splash_screen.dart';
 import 'package:plotsfolio/screens/splashscreen/splash_sidemenu.dart';
@@ -17,12 +15,6 @@ Future<void> main() async {
   // device.
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-  // This PWA is hosted via Firebase Hosting. Initialize Firebase with the
-  // default options.
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
   // Let's go.
   runApp(const MainEntry());
 }
@@ -33,8 +25,8 @@ class MainEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Plotsfolio',
       debugShowCheckedModeBanner: false,
+      title: 'Plotsfolio',
 
       // Use the font from the sFont signal. In a later stadium, the portfolio
       // visitor will be able to change the font.
